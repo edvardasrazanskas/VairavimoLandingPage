@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+
+      # Middleware: Redirect to HTTPS
+      - traefik.http.middlewares.landing-force-secure.redirectscheme.scheme=https
+      - traefik.http.middlewares.landing-force-secure.redirectscheme.permanent=true
+
+      # HTTP Router: Listens on web (80), redirects to HTTPS
+      - traefik.http.routers.landing-http.rule=Host(`vairavimas.edvardasr.lt`)
+      - traefik.http.routers.landing-http.entrypoints=web
+      - traefik.http.routers.landing-http.middlewares=landing-force-secure
+
+      # HTTPS Router: Listens on websecure (443), serves app
+      - traefik.http.routers.landing-https.rule=Host(`vairavimas.edvardasr.lt`)
+      - traefik.http.routers.landing-https.entrypoints=websecure
+      - traefik.http.routers.landing-https.tls=true
+      - traefik.http.routers.landing-https.tls.certresolver=letsencrypt
+      - traefik.http.routers.landing-https.service=landing
+
+      # Service
+      - traefik.http.services.landing.loadbalancer.server.port=3000
+    environment:
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-changeme}
+      - SESSION_SECRET=${SESSION_SECRET:-change-this-to-random-string}
+    volumes:
+      - sqlite_data:/app/data
+    networks:
+      - traefik-proxy
+
+volumes:
+  sqlite_data:
+
+
+networks:
+  traefik-proxy:
+    external: true
