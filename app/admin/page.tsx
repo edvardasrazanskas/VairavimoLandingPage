@@ -197,7 +197,7 @@ export default function AdminPage() {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
                     <div>
                         <h1 className="text-2xl font-bold gradient-text">
-                            Administratoriaus skydelis 0.2
+                            Administratoriaus skydelis 0.3
                         </h1>
                         <p className="text-[var(--color-muted)] text-sm mt-1">
                             Vairavimas Landing Page statistika
