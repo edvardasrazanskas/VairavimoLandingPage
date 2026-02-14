@@ -12,12 +12,12 @@ services:
       - traefik.http.middlewares.landing-force-secure.redirectscheme.permanent=true
 
       # HTTP Router: Listens on web (80), redirects to HTTPS
-      - traefik.http.routers.landing-http.rule=Host(`vairavimas.edvardasr.lt`)
+      - traefik.http.routers.landing-http.rule=Host(`lafela.lt`)
       - traefik.http.routers.landing-http.entrypoints=web
       - traefik.http.routers.landing-http.middlewares=landing-force-secure
 
       # HTTPS Router: Listens on websecure (443), serves app
-      - traefik.http.routers.landing-https.rule=Host(`vairavimas.edvardasr.lt`)
+      - traefik.http.routers.landing-https.rule=Host(`lafela.lt`)
       - traefik.http.routers.landing-https.entrypoints=websecure
       - traefik.http.routers.landing-https.tls=true
       - traefik.http.routers.landing-https.tls.certresolver=letsencrypt

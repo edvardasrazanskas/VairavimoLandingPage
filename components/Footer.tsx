@@ -6,10 +6,10 @@ export default function Footer() {
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted)]">
                 <div className="flex items-center gap-2">
                     <span className="gradient-text font-bold text-base">
-                        Vairavimas
+                        LAFELA.CLOUD
                     </span>
                 </div>
-                <p>© {year} Vairavimas. Visos teisės saugomos.</p>
+                <p>© {year} lafela.cloud. Visos teisės saugomos.</p>
             </div>
         </footer>
     );

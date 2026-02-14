@@ -41,8 +41,8 @@ export default function Hero() {
 
             <div
                 className={`relative z-10 text-center max-w-4xl mx-auto transition-all duration-1000 ${isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                     }`}
             >
                 {/* Badge */}
@@ -71,7 +71,7 @@ export default function Hero() {
                     href="#contact"
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] text-white font-semibold text-lg hover:opacity-90 transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(99,102,241,0.4)]"
                 >
-                    Pradėti nemokamai
+                    Būkite pirmieji
                     <svg
                         className="w-5 h-5"
                         fill="none"
@@ -89,13 +89,6 @@ export default function Hero() {
 
                 {/* Stats row */}
                 <div className="flex items-center justify-center gap-8 sm:gap-12 mt-16 text-sm text-[var(--color-muted)]">
-                    <div className="text-center">
-                        <div className="text-2xl font-bold text-[var(--color-foreground)]">
-                            100%
-                        </div>
-                        <div>Nemokamas</div>
-                    </div>
-                    <div className="w-px h-10 bg-[var(--color-border)]" />
                     <div className="text-center">
                         <div className="text-2xl font-bold text-[var(--color-foreground)]">
                             24/7
